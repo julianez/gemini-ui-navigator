@@ -25,20 +25,63 @@ A **Google Cloud Run microservice** fetches and renders the latest build for sta
 # 📐 System Architecture
 
 ```mermaid
-graph TD
-    subgraph Local_Edge [Local Machine - Gemini ADK]
-        User((User)) --> |Project Name| ADK[Gemini Agent Development Kit]
-        ADK --> |Figma Vision| Model[Gemini 3.1 Flash Lite Preview]
-        Model --> |Physical Control| Automation[Playwright & PyAutoGUI]
-        Automation --> |Capture| Screenshot[debug_figma.png]
-    end
+%%{init: {
+  "theme": "base",
+  "flowchart": { "curve": "linear" },
+  "themeVariables": {
+    "fontFamily": "Inter, Arial, sans-serif",
+    "primaryColor": "#F8FAFC",
+    "primaryBorderColor": "#334155",
+    "lineColor": "#475569",
+    "secondaryColor": "#EEF2F7",
+    "tertiaryColor": "#FFFFFF",
+    "fontSize": "14px"
+  }
+}}%%
 
-    subgraph Storage_Layer [Data Persistence]
-        Model --> |Generated Code| GCS_Tool[Google Cloud Storage Tool]
-        GCS_Tool --> |Upload| Bucket[(GCS Bucket: bucket_gem_challenge)]
-    end
+flowchart LR
 
-    subgraph Presentation_Layer [Google Cloud Run]
-        Bucket --> |Fetch .tsx| CR[Cloud Run: ui-navigator-web]
-        CR --> |Render| Web((Web Landing Page))
-    end
+%% USER
+User((👤 User))
+
+%% LOCAL AGENT
+subgraph Agent["Local AI Agent"]
+ADK["🧠 Gemini Agent Development Kit"]
+Vision["👁️ UI Vision Analysis"]
+Automation["🤖 Playwright + PyAutoGUI"]
+Screenshot["📸 Figma Screenshot"]
+end
+
+%% AI MODEL
+subgraph AI["Gemini Reasoning"]
+Gemini["Gemini 3.1 Flash Lite"]
+CodeGen["⚛️ React Native Code Generation"]
+end
+
+%% CLOUD STORAGE
+subgraph Storage["Cloud Storage"]
+GCS["📦 GCS Upload Tool"]
+Bucket[("🪣 GCS Bucket\nbucket_gem_challenge")]
+end
+
+%% CLOUD RUNTIME
+subgraph Runtime["Cloud Deployment"]
+CloudRun["☁️ Cloud Run\nui-navigator-web"]
+WebApp(("🌐 Demo Web App"))
+end
+
+%% JUDGES
+Judges((🏆 Judges))
+
+%% FLOWS
+User -->|Project Name| ADK
+ADK --> Vision
+Vision --> Gemini
+Gemini --> Automation
+Automation --> Screenshot
+Gemini --> CodeGen
+CodeGen --> GCS
+GCS --> Bucket
+Bucket --> CloudRun
+CloudRun --> WebApp
+Judges -->|Open Demo URL| WebApp
