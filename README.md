@@ -46,35 +46,35 @@ User((👤 User))
 
 %% LOCAL AGENT
 subgraph Agent["Local AI Agent"]
-ADK["🧠 Gemini Agent Development Kit"]
-Vision["👁️ UI Vision Analysis"]
-Automation["🤖 Playwright + PyAutoGUI"]
-Screenshot["📸 Figma Screenshot"]
+ADK["🧠 Gemini Agent <br/>Development Kit"]
+Vision["👁️ UI Vision <br/> Analysis"]
+Automation["🤖 Playwright <br/>+<br/> PyAutoGUI"]
+Screenshot["📸 Figma <br/>Screenshot"]
 end
 
 %% AI MODEL
 subgraph AI["Gemini Reasoning"]
-Gemini["Gemini 3.1 Flash Lite"]
-CodeGen["⚛️ React Native Code Generation"]
+Gemini["Gemini 3.1 <br/> Flash Lite"]
+CodeGen["⚛️ React Native <br/> Code Generation"]
 end
 
 %% CLOUD STORAGE
 subgraph Storage["Cloud Storage"]
-GCS["📦 GCS Upload Tool"]
-Bucket[("🪣 GCS Bucket\nbucket_gem_challenge")]
+GCS["📦 GCS <br/>Upload Tool"]
+Bucket[("🪣 GCS <br/>Bucket")]
 end
 
 %% CLOUD RUNTIME
 subgraph Runtime["Cloud Deployment"]
-CloudRun["☁️ Cloud Run\nui-navigator-web"]
-WebApp(("🌐 Demo Web App"))
+CloudRun["☁️ Cloud Run<br/>ui-navigator-web"]
+WebApp(("🌐 Demo <br/>Web App"))
 end
 
 %% JUDGES
 Judges((🏆 Judges))
 
 %% FLOWS
-User -->|Project Name| ADK
+User -->|Project <br/>Name| ADK
 ADK --> Vision
 Vision --> Gemini
 Gemini --> Automation
