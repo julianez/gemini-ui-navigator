@@ -1,6 +1,6 @@
 # 🚀 Gemini UI Navigator:  Edition
 
-An autonomous AI agent powered by **Gemini 1.5 Flash** and the **Gemini Agent Development Kit (ADK)** that interprets **Figma prototypes through computer vision** and generates **production-ready React Native code**, automatically deployed to **Google Cloud**.
+An autonomous AI agent powered by **Gemini 3.1 Flash Lite Preview** and the **Gemini Agent Development Kit (ADK)** that interprets **Figma prototypes through computer vision** and generates **production-ready React Native code**, automatically deployed to **Google Cloud**.
 
 ---
 
@@ -12,7 +12,7 @@ The system follows a **Hybrid Edge-Cloud Architecture**:
 Orchestrates physical automation (**Playwright / PyAutoGUI**) to navigate Figma, handle UI state, and capture high-resolution screenshots.
 
 ### Multimodal Reasoning
-**Gemini 1.5 Flash** analyzes visual input to extract exact branding, colors *( Red #EC111A)*, and layout hierarchies.
+**Gemini 3.1 Flash Lite Preview** analyzes visual input to extract exact branding, colors and layout hierarchies.
 
 ### Cloud Persistence
 Generated code is persisted in **Google Cloud Storage**.
@@ -28,7 +28,7 @@ A **Google Cloud Run microservice** fetches and renders the latest build for sta
 graph TD
     subgraph Local_Edge [Local Machine - Gemini ADK]
         User((User)) --> |Project Name| ADK[Gemini Agent Development Kit]
-        ADK --> |Figma Vision| Model[Gemini 1.5 Flash]
+        ADK --> |Figma Vision| Model[Gemini 3.1 Flash Lite Preview]
         Model --> |Physical Control| Automation[Playwright & PyAutoGUI]
         Automation --> |Capture| Screenshot[debug_figma.png]
     end
