@@ -1,0 +1,13 @@
+# Credentials and Environment
+.env
+secrets.json
+*.key
+
+# Python specifics
+__pycache__/
+.venv/
+*.pyc
+
+# Local debug files
+debug_figma.png
+GeminiChallenge
