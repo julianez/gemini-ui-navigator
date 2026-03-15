@@ -1,4 +1,4 @@
-# 🚀 Gemini UI Navigator:  Edition
+# 🚀 Figma to Code Powered by Gemini
 
 An autonomous AI agent powered by **Gemini 3.1 Flash Lite Preview** and the **Gemini Agent Development Kit (ADK)** that interprets **Figma prototypes through computer vision** and generates **production-ready React Native code**, automatically deployed to **Google Cloud**.
 
