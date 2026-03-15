@@ -1,0 +1,8 @@
+# Servidor web ligero para la landing page
+flask==3.0.2
+
+# Cliente oficial para leer el código .tsx desde el Bucket
+google-cloud-storage==2.15.0
+
+# Servidor de producción WSGI (Recomendado por Google para Cloud Run)
+gunicorn==21.2.0
