@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, StatusBar } from 'react-native';
 
 const GeminiChallenge = () => {
   return (
@@ -7,12 +7,10 @@ const GeminiChallenge = () => {
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.greeting}>Hola Maria José</Text>
-        <Text style={styles.balanceLabel}>Tu saldo</Text>
-        <Text style={styles.balanceValue}>USD: $950</Text>
+        <Text style={styles.balance}>USD: $950</Text>
       </View>
-
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.primaryButton}>
+      <View style={styles.actions}>
+        <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Transferir ahora</Text>
         </TouchableOpacity>
       </View>
@@ -23,33 +21,30 @@ const GeminiChallenge = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1E1E1E', // Dark Grey background
-    padding: 20,
+    backgroundColor: '#1C1C1E', // Dark Grey background
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
-    marginTop: 50,
+    marginBottom: 40,
+    alignItems: 'center',
   },
   greeting: {
     color: '#FFFFFF',
     fontSize: 24,
     fontWeight: 'bold',
   },
-  balanceLabel: {
-    color: '#A0A0A0',
-    fontSize: 16,
-    marginTop: 10,
-  },
-  balanceValue: {
+  balance: {
     color: '#FFFFFF',
     fontSize: 32,
     fontWeight: 'bold',
-    marginVertical: 10,
+    marginTop: 10,
   },
-  buttonContainer: {
-    marginTop: 40,
+  actions: {
+    width: '80%',
   },
-  primaryButton: {
-    backgroundColor: '#E60000', // Scotiabank Red
+  button: {
+    backgroundColor: '#FF0000', // Scotiabank Red
     paddingVertical: 15,
     borderRadius: 8,
     alignItems: 'center',
@@ -57,7 +52,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: 'bold',
   },
 });
 

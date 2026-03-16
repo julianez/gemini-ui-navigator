@@ -62,7 +62,7 @@ class PlaywrightWorker(threading.Thread):
                         # Click first result (Calibrated coordinates for split-screen)
                         screen_width, screen_height = pyautogui.size()
                         target_x = screen_width * 0.22 
-                        target_y = screen_height * 0.30 
+                        target_y = screen_height * 0.20 
                         
                         print(f"Target locked! Moving mouse to X:{target_x}, Y:{target_y}...")
                         pyautogui.moveTo(target_x, target_y, duration=1.0, tween=pyautogui.easeInOutQuad)
@@ -168,9 +168,9 @@ def upload_to_gcs(content: str, filename: str = "GeminiChallenge.tsx"):
 
     PROJECT_ID = "gem-challenge-julianez" 
     BUCKET_NAME = "bucket_gem_challenge"
-    
+    print(">>> Uploading Code to GCS Bucket <<<")
+
     try:
-        # Pasamos el project explícitamente al cliente
         storage_client = storage.Client(project=PROJECT_ID)
         bucket = storage_client.bucket(BUCKET_NAME)
         
@@ -178,6 +178,9 @@ def upload_to_gcs(content: str, filename: str = "GeminiChallenge.tsx"):
         blob.upload_from_string(content, content_type='text/plain')
         
         public_url = f"https://storage.googleapis.com/{BUCKET_NAME}/{filename}"
+
+        print(f"✅ File Uploaded to Cloud {public_url}")
+
         return f"✅ Uploaded to Cloud: {public_url}"
     except Exception as e:
         return f"❌ Cloud Storage Error: {str(e)}"

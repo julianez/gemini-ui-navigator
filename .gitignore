@@ -10,4 +10,7 @@ __pycache__/
 
 # Local debug files
 debug_figma.png
-GeminiChallenge
+GeminiChallenge.tsx
+
+# Agent data
+.adk/
